@@ -1,0 +1,9 @@
+mysql-connector-python
+flask
+flask-jwt-extended
+requests
+python-dotenv
+mysql
+werkzeug
+PyJWT
+itsdangerous

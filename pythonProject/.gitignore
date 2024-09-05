@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+.env
+mysql.env
+note.txt
+.idea/

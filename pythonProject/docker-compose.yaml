@@ -1,0 +1,26 @@
+services:
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    env_file: "mysql.env"
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  pythonapp:
+    build: .
+    command: sh -c "sleep 10s ; flask run --host=0.0.0.0"
+    ports:
+      - 5000:5000
+    depends_on:
+      - mysql
+    env_file: ".env"
+    develop:
+      watch:
+        - action: rebuild
+          path: .
+
+volumes:
+  mysql_data:
